@@ -6,27 +6,14 @@ const container = document.querySelector('.container');
 const clock = document.querySelector('.clock');
 
 
-let _hour = 0, _minutes = 0, _seconds = 0;
 
 
-const setSecond = setInterval(() => {
-    _seconds++;
-    seconds.textContent = format(_seconds);
-    if (_seconds == 60) _seconds = 0;
-}, 1000);
-const setMinutes = setInterval(() => {
-    _minutes++;
-    minutes.textContent = format(_minutes);
-    if (_minutes == 60) _minutes = 0;
-}, 60000);
-const setHour = setInterval(() => {
-    _hour++;
-    hour.textContent = _hour;
-    if (_hour == 24) _hour = format(_hour);
-}, 360000000);
-setSecond;
-setMinutes;
-setHour;
+setInterval(() => {
+    let date = new Date();
+    hour.textContent = format(date.getHours());
+    minutes.textContent= format(date.getMinutes());
+    seconds.textContent = format(date.getSeconds());
+},1000)
 
 
 function format(number) {
